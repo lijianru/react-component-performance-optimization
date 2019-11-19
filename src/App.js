@@ -2,7 +2,8 @@ import React from 'react';
 import Demo1 from "./pages/WPO/Lv01_shouldComponentUpdate";
 import Demo2 from "./pages/WPO/Lv02_PureComponent";
 import Demo3 from "./pages/WPO/Lv03_memo";
-import Demo4 from "./pages/WPO/Lv04_useMemo_useCallback";
+import Demo4 from "./pages/WPO/Lv04_useCallback";
+import Demo5 from "./pages/WPO/Lv05_useMemo";
 
 function App() {
   return (
@@ -16,8 +17,11 @@ function App() {
       <h3>Lv03_memo</h3>
       <Demo3/>
       <hr/>
-      <h3>Lv04_useMemo</h3>
+      <h3>Lv04_useCallback</h3>
       <Demo4/>
+      <hr/>
+      <h3>Lv05_useMemo</h3>
+      <Demo5/>
     </div>
   );
 }
