@@ -22,7 +22,7 @@ export default class Demo1 extends Component {
             <div>
                 <button onClick={() => { this.setState({ count: this.state.count + 1 }) }}>Click</button>
                 <p>count: {this.state.count}</p>
-                <Foo name={'XX'} />
+                <Foo name={'Richard'} />
             </div>
         )
     }
