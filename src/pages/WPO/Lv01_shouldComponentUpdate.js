@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
 class Foo extends Component {
-    shouldComponentUpdate(nextProps, nextState) {
-        return nextProps.name !== this.props.name
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return nextProps.name !== this.props.name
+    // }
 
     render() {
         console.log('Foo render')

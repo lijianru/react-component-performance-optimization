@@ -3,7 +3,6 @@ import {isEqual} from "lodash";
 
 const Foo = memo(function Foo(props) {
     console.log('Foo render')
-    console.log(props);
     return (
       <>
           <button onClick={props.onClick}>改标题 (Foo)</button>
@@ -20,7 +19,6 @@ const Foo = memo(function Foo(props) {
 
 const Bar = memo(function Bar(props) {
   console.log('Bar render')
-  console.log(props)
   return (
     <>
       <button onClick={props.onClick}>改标题 (Bar)</button>

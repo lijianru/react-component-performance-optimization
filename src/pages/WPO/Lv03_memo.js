@@ -1,9 +1,8 @@
-import React, { Component, memo } from 'react'
+import React, { PureComponent, memo } from 'react'
 import { isEqual } from 'lodash'
 
 const Lee = memo(function Lee(props) {
   console.log('Lee render')
-  console.log(props.person)
   return (
     <div>Lee</div>
   )
@@ -11,7 +10,6 @@ const Lee = memo(function Lee(props) {
 
 const Foo = memo(function Foo(props) {
     console.log('Foo render')
-    console.log(props.person)
     return (
         <div>Foo</div>
     )
@@ -19,7 +17,6 @@ const Foo = memo(function Foo(props) {
 
 const Bar = memo(function Bar(props) {
   console.log('Bar render')
-  console.log(props.person)
   return (
     <div>Bar</div>
   )
@@ -31,7 +28,7 @@ const Bar = memo(function Bar(props) {
   return propsIsEqual
 })
 
-export default class Demo3 extends Component {
+export default class Demo3 extends PureComponent {
     state = {
         count: 0
     }
