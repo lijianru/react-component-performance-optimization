@@ -14,8 +14,8 @@ export default function Demo5() {
   }
 
   // 通过useMemo将计算结果缓存起来，避免在组件重新渲染的时候再次执行expensiveFn函数
-  const base = useMemo(expensiveFn, []);
-  // const base = expensiveFn()
+  // const base = useMemo(expensiveFn, []);
+  const base = expensiveFn()
 
   return (
     <div className="App">

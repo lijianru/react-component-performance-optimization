@@ -52,8 +52,8 @@ export default class Demo2 extends PureComponent {
                 <button onClick={() => { this.setState({ count: count + 1 }) }}>Click count</button>
                 <p>count: {count}</p>
                 <Foo name={'Richard'} />
-                <Bar person={person} />
-                {/*<Bar person={{info: {age: 18}}} />*/}
+                <Bar person={{info: {age: 18}}} />
+                {/*<Bar person={person} />*/}
                 {/*即便handle上传递的函数一直都是() => {}，但是在点击按钮的更新count的时候Lee也会渲染，因为在Demo2组件重渲染的时候会创建一个新的() => {},所以在传递函数的时候尽量将函数定义在Demo2组件中*/}
                 <Lee handle={() => {}} />
                 <Hoo handle={this.handleHoo} name={'Richard'} />

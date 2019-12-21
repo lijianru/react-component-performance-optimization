@@ -47,8 +47,8 @@ export default function Demo4() {
           <h2>副标题：{subtitle}</h2>
           <button onClick={() => setSubtitle((new Date()).getTime())}>改副标题</button>
           <Foo onClick={callback} name="Richard" />
-          {/*<Bar onClick={callback} name="Richard" />*/}
-          <Bar onClick={callbackUseHook} name="Richard" />
+          <Bar onClick={callback} name="Richard" />
+          {/*<Bar onClick={callbackUseHook} name="Richard" />*/}
       </div>
     );
 }
