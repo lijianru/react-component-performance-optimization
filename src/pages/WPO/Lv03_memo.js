@@ -40,6 +40,12 @@ export default class Demo3 extends PureComponent {
                 <Lee person={'Richard'} />
                 <Foo person={{info: {age: 18}}} />
                 <Bar person={{info: {age: 18}}} />
+                {/**
+                 * React.memo(MyComponent, areEqual)为高阶组件。它与 React.PureComponent 非常相似，只会对复杂的对象进行浅层比较。它适用于函数组件，但不适用于 class 组件。
+                 * 它接受两个参数，第一个为被优化的函数组件，第二个为对比函数。与 class 组件中 shouldComponentUpdate() 方法不同的是，如果 props 相等，
+                 * areEqual 会返回 true；如果 props 不相等，则返回 false。这与 shouldComponentUpdate 方法的返回值相反。此方法仅作为性能优化的方式而存在。
+                 * 但请不要依赖它来“阻止”渲染，因为这会产生 bug。
+                 */}
             </div>
         )
     }

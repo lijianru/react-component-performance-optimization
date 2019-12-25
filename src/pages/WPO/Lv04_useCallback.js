@@ -18,7 +18,7 @@ const Foo = memo(function Foo(props) {
 })
 
 const Bar = memo(function Bar(props) {
-  console.log('Bar render')
+  console.log(`Bar${props.num} render`)
   return (
     <>
       <button onClick={props.onClick}>改标题 (Bar)</button>
@@ -45,8 +45,13 @@ export default function Demo4() {
           <h2>副标题：{subtitle}</h2>
           <button onClick={() => setSubtitle((new Date()).getTime())}>改副标题</button>
           <Foo onClick={callback} name="Richard" />
-          <Bar onClick={callback} name="Richard" />
-          {/*<Bar onClick={callbackUseHook} name="Richard" />*/}
+          <Bar num={1} onClick={callback} name="Richard" />
+          <Bar num={2} onClick={callbackUseHook} name="Richard" />
+          {/**
+           * useCallback(fn, deps)用来优化函数组件，常常结合memo高阶组件来使用。使用场景：在函数组件中给子组件传递一个回调函数
+           *
+           * useCallback(fn, deps) 相当于 useMemo(() => fn, deps)
+           */}
       </div>
     );
 }
