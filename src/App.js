@@ -7,7 +7,7 @@ import Demo5 from "./pages/WPO/Lv05_useMemo";
 
 function App() {
   return (
-    <div>
+    <div style={{margin: '50px'}}>
       <h3>Lv01_shouldComponentUpdate</h3>
       <Demo1/>
       <hr/>
