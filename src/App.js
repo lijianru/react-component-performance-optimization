@@ -1,6 +1,7 @@
 import React from 'react'
 import { MouseAdd, MouseText } from './pages/renderProps'
 import { MouseTextHOC } from './pages/hoc'
+import FileInput from './pages/uploadFile'
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
       <h3>Render Props</h3>
       <MouseText />
       <MouseAdd />
+      <hr />
+      <FileInput />
     </div>
   )
 }
