@@ -4,8 +4,8 @@ export const person = {
   },
 };
 
-export function expensiveFnCopy() {
-  console.log('Lv05_useMemo: expensiveFnCopy');
+export function expensiveFnCopy(type) {
+  console.log(`Lv05_useMemo: expensiveFnCopy ${type}`);
   let result = 0;
   for (let i = 0; i < 10000; i++) {
     result += i;

@@ -6,7 +6,6 @@ const Foo = memo(
     console.log('Lv04_useCallback: Foo render');
     return (
       <>
-        <button onClick={props.onClick}>改标题 (Foo)</button>
         <h1>{props.name}</h1>
       </>
     );
@@ -21,10 +20,9 @@ const Foo = memo(
 );
 
 const Bar = memo(function Bar(props) {
-  console.log(`Lv04_useCallback: Bar${props.num} render`);
+  console.log(`Lv04_useCallback: ${props.name} render`);
   return (
     <>
-      <button onClick={props.onClick}>改标题 (Bar)</button>
       <h1>{props.name}</h1>
     </>
   );
@@ -32,7 +30,6 @@ const Bar = memo(function Bar(props) {
 
 export default function Demo4() {
   const [title, setTitle] = useState(0);
-  const [subtitle, setSubtitle] = useState(0);
 
   const callback = () => {
     setTitle(new Date().getTime());
@@ -45,11 +42,10 @@ export default function Demo4() {
   return (
     <div className="App">
       <h1>主标题：{title}</h1>
-      <h2>副标题：{subtitle}</h2>
-      <button onClick={() => setSubtitle(new Date().getTime())}>改副标题</button>
+      <button onClick={() => setTitle(new Date().getTime())}>改副标题</button>
       <Foo onClick={callback} name="Richard" />
-      <Bar num={1} onClick={callback} name="Richard" />
-      <Bar num={2} onClick={callbackUseHook} name="Richard" />
+      <Bar num={1} onClick={callback} name="Richard1" />
+      <Bar num={2} onClick={callbackUseHook} name="Richard2" />
     </div>
   );
 }
