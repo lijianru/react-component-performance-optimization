@@ -1,14 +1,9 @@
 import React, { PureComponent, memo } from 'react';
 import { isEqual } from 'lodash';
 
-const Lee = memo(function Lee(props) {
-  console.log('Lv03_memo: Lee render');
-  return <div>Lee</div>;
-});
-
 const Foo = memo(function Foo(props) {
-  console.log('Lv03_memo: Foo render');
-  return <div>Foo</div>;
+  console.log(`Lv03_memo: Foo ${props.name} render`);
+  return <div>Foo {props.name}</div>;
 });
 
 const Bar = memo(
@@ -40,8 +35,8 @@ export default class Demo3 extends PureComponent {
           Click
         </button>
         <p>count: {this.state.count}</p>
-        <Lee person={'Richard'} />
-        <Foo person={{ info: { age: 18 } }} />
+        <Foo name={1} person={'Richard'} />
+        <Foo name={2} person={{ info: { age: 18 } }} />
         <Bar person={{ info: { age: 18 } }} />
       </div>
     );

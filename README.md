@@ -13,7 +13,7 @@
 
 ### PureComponent
 React.PureComponent 与 React.Component 很相似。两者的区别在于 React.Component 并未实现 shouldComponentUpdate()，
-而 React.PureComponent 中以浅层对比 prop 的方式来实现了该函数。
+而 React.PureComponent 中以浅层对比（Object.is()） prop 的方式来实现了该函数。
 
 当点击Click count按钮的时候我们发现只有第一个Bar和Lee组件重新渲染了。比较Foo组件和第一个Bar组件我们发现，
 传入Foo组件的是一个基本类型（字符串），而传入第一个Bar组件的是一个引用类型（对象）。由于在点击Click的时候Demo2组件会重新渲染，
@@ -29,11 +29,13 @@ React.PureComponent 与 React.Component 很相似。两者的区别在于 React.
 
 ## 函数组件的性能优化
 ### memo
-React.memo(MyComponent, areEqual)为高阶组件。它与 React.PureComponent 非常相似，只会对复杂的对象进行浅层比较。它适用于函数组件，但不适用于 class 组件。
+React.memo(MyComponent, areEqual)为高阶组件。它与 React.PureComponent 非常相似，只会对复杂的对象进行浅层对比（Object.is()）。它适用于函数组件，但不适用于 class 组件。
 
 它接受两个参数，第一个为被优化的函数组件，第二个为对比函数。与 class 组件中 shouldComponentUpdate() 方法不同的是，如果 props 相等，
 areEqual 会返回 true；如果 props 不相等，则返回 false。这与 shouldComponentUpdate 方法的返回值相反。此方法仅作为性能优化的方式而存在。
 但请不要依赖它来“阻止”渲染，因为这会产生 bug。
+
+在例子中，虽然都使用了memo函数包裹组件，但是Foo 2渲染了而 Foo 1没有渲染，也是因为浅层对比（Object.is()）的原因
 
 对应例子：[memo](./src/pages/WPO/Lv03_memo.js)
 
@@ -53,7 +55,4 @@ useMemo用来优化函数组件。使用场景：1. 在组件中需要获取一�
 # 几个问题
 - 什么是浅层比较？
 - 为什么采用浅层比较？
-- 为什么Demo4中的`<Bar num={1} onClick={callback} name="Richard" />`渲染了，
-而Demo2中的`<Hoo handle={this.handleHoo} name={'Richard'} />`没有渲染？
-- 为什么Demo5中的`<Foo name={1} person={base3} />`和`<Foo name={2} person={base4} />`渲染了，
-而`<Foo name={3} person={base5} />`和`<Foo name={4} person={'Richard'} />`没有渲染
+- 为什么Demo2中将变量提取到单独的文件可以防止不必要的渲染，而Demo5中的expensiveFnCopy函数提取出来却不能？
